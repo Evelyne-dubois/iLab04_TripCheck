@@ -19,13 +19,13 @@ de façons simple et rapide.</p>
 
 <h2>Liens</h2>
 
-<p><a href="http://evelynedubois.be/presentation/">Site</a></p>
-<p><a href="http://evelynedubois.be/tripcheck/">Application</a></p>
-<p><a href="http://www.youtube.com/watch?v=CcONLWt6ztg">Vidéo</a></p>
+<p><a href="http://evelynedubois.be/presentation/" target="_blank">Site</a></p>
+<p><a href="http://evelynedubois.be/tripcheck/" target="_blank">Application</a></p>
+<p><a href="http://www.youtube.com/watch?v=CcONLWt6ztg" target="_blank">Vidéo</a></p>
 
 <h2>Réalisé par</h2>
-<p><a href="https://twitter.com/CSskellington">Célia Samyn 3TID1</a></p>
-<p><a href="https://twitter.com/Frenchdede89">Evelyne Dubois 3TID1</a></p>
+<p><a href="https://twitter.com/CSskellington" target="_blank">Célia Samyn 3TID1</a></p>
+<p><a href="https://twitter.com/Frenchdede89" target="_blank">Evelyne Dubois 3TID1</a></p>
 
 
 <h2>Autres</h2>
