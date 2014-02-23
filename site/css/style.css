@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'mission-script';
+    src: url('../fonts/mission-script-webfont.eot');
+    src: url('../fonts/mission-script-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/mission-script-webfont.woff') format('woff'),
+         url('../fonts/mission-script-webfont.ttf') format('truetype'),
+         url('../fonts/mission-script-webfont.svg#julius_sans_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'agency';
+    src: url('../fonts/agency_fb.eot');
+    src: url('../fonts/agency_fb.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/agency_fb.woff') format('woff'),
+         url('../fonts/agency_fb.ttf') format('truetype'),
+         url('../agency_fb.svg#julius_sans_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+    width: 100%;
+}
+
+
+.container {
+    margin: 20px auto;
+    width: 1280px;
+}
+
+header {
+    overflow: hidden;
+}
+
+#logo {
+    background: url(../img/logo.png) no-repeat;
+    width: 330px;
+    height: 92px;
+    text-indent: -9999px;
+    display: block;
+    float: left;
+    margin-left: 40px;
+}
+
+header #button {
+    float: right;
+    margin-right: 40px;
+    margin-top: 20px;
+}
+
+#button a {
+    background: url(../img/button_sprite.png) no-repeat;
+    text-indent: -9999px;
+    width: 242px;
+    height: 47px;
+    display: block;
+}
+
+#button a:hover {
+    background-position: 0 -49px;
+}
+
+#content {
+    font-family: 'agency';
+    font-size: 20px;
+    margin-top: 30px;
+    margin-right: 0;
+    margin-left: 0;
+    overflow: hidden;
+    clear: both;
+}
+
+#banner{
+    width: 100%;
+    height: 380px;
+    background: url(../img/test.png) no-repeat;
+    background-size: cover;
+}
+
+.template {
+    display: block;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+#content h2 {
+    font-family: 'agency';
+    font-size: 35px;
+    margin-top: 285px;
+    text-align: center;
+    color: #f96969;
+}
+
+#installation h2 {
+    margin-top: 100px;
+}
+
+.fonctionalites {
+    width: 340px;
+    float: left;
+    margin-left: 80px;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.fonctionalites h3 {
+    font-family: 'mission-script';
+    font-size: 30px;
+    color: #f65654;
+    margin-top: 15px;
+}
+
+.fonctionalites p {
+    font-family: 'agency';
+    font-size: 20px;
+    color: #191919;
+}
+
+.fonctionalites img {
+    margin-left: 50px;
+}
+
+video {
+    margin-top: 60px;
+}
+
+#installation p {
+    width: 450px;
+    margin-top: 20px;
+}
+
+a.tripcheck{
+font-family: 'mission-script', cursive;
+color: #f96969;
+text-decoration: none;
+}
+
+.install {
+    width: 340px;
+    float: left;
+    margin-left: 80px;
+    overflow: hidden;
+    margin-top: 60px;
+}
+
+.install img {
+    margin-left: 60px;
+}
+
+footer {
+    height: 300px;
+    background: #f96969;
+    border-top: 2px solid #dd5252;
+    margin-top: 100px;
+}
+
+.foot-int {
+    width: 1280px;
+    margin: 20px auto;
+}
+
+footer .column {
+    float: left;
+    margin-right: 600px;
+    margin-left: 100px;
+}
+
+footer .column:last-child {
+    margin: 0;
+}
+
+footer .column p {
+    color: #fff;
+    font-family: 'agency';
+    font-size: 20px;
+    text-align: center;
+}
+
+footer .column span {
+    font-family: 'mission-script';
+    color: #fff;
+}
+
+footer .column:last-child {
+    margin: 0;
+}
+
+footer .team {
+    float: left;
+    margin-right: 30px;
+}
+
+h4 {
+    color: #fff;
+    font-family: 'agency';
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+footer li a {
+    text-decoration: none;
+    color: #fff;
+    font-family: 'agency';
+    font-size: 20px;
+}
+
+footer li a:hover {
+    text-decoration: none;
+    color: #c14040;
+}

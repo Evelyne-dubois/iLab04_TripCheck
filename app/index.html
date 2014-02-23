@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>TripCheck</title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cleartype" content="on">
+
+        <!-- meta du pdf -->
+        <meta name="viewport" content="user-scalable=no,initial-scale=1">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="TripCheck">
+
+<!--     <link rel="apple-touch-startup-image" href="apple-touch-startup-image.png">
+        <link rel="apple-touch-startup-image" href="iphone4/apple-touch-startup-image.png" media="(device-height:480px)"> 
+        <link rel="apple-touch-startup-image" href="iphone5/apple-touch-startup-image.png" media="(device-height:568px)"> -->
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/touch/144x144.png">
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/touch/57x57.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/touch/72x72.png">
+        <link rel="apple-touch-icon-precomposed" href="57x57.png">
+        <link rel="shortcut icon" href="images/touch/57x57.png">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="images/touch/144x144.png">
+        <meta name="msapplication-TileColor" content="#ffffff">
+
+
+        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+        
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="TripCheck">
+        
+       <!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+        <!--
+        <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+        -->
+
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body onLoad="return_storage();" id="picture-frame" ontouchstart="touchStart(event,'picture-frame');"  ontouchend="touchEnd(event);" ontouchmove="touchMove(event);" ontouchcancel="touchCancel(event);">
+
+        <section id="create-trip">
+
+            <header>
+                <div class="container">
+                    <h1>TripCheck</h1>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+
+                    <img src="images/logo.png" width="142" height="155" alt="TripCheck's logo" />
+                    
+                    <a href="#create-your-travel" class="button-create">Create your trip!</a>
+                </div>
+            </div>
+
+        </section><!-- creat-trip -->
+
+        <section id="create-your-travel">
+
+            <header>
+                <div class="container">
+                    <h1>Your travel</h1>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+
+                    <form action="#" method="post" onsubmit="creat_travel(event)">
+                        <fieldset>
+
+                            <legend><h2>Create your travel</h2></legend>
+
+                            <p id="error"></p>
+                            <input type="text" name="travelName" id="travelName" placeholder="Name your trip" onChange="window.location.hash='create-your-travel'">
+
+                            <div class="overflow-hidden">
+                                <input type="date" name="start" id="start" required="required" onChange="nbr_jours()">
+                                <input type="date" name="end" id="end" required="required" onChange="nbr_jours()">
+                            </div>
+
+                            <output id="temps"></output>
+                            
+                            <input type="text" name="travelBudget" id="travelBudget" placeholder="Enter your maximum budget" onChange="window.location.hash='create-your-travel'">
+                            
+                            <input type="submit" name="submit" value="Validate my trip !">
+
+                            <!-- <img src="images/plane.png" alt="plane" with="" height="" /> -->
+                            
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+
+            
+        </section><!-- create-your-travel -->
+
+        <section id="checklist-page">
+
+            <header>
+                <div class="container">
+                    <h1>Checklist</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+             <div class="content">
+                <div class="container">
+                    <form action="#" method="post" onsubmit="add_checklist(event)" class="overflow-hidden">
+                            <h2>Things to not forget</h2>
+                            <input type="text" name="new" id="addObject" maxlength="50" placeholder="Enter something you have to do">
+                            <input type="submit" name="" id="" value="+">
+                    </form>
+
+
+                    <ul id="checklist" class="clear overflow-hidden">
+
+                    </ul>
+
+                </div>
+            </div>
+
+             <footer class="footer">
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg" class="current">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg">Budget</a></li>
+                    <li><a href="#notifications-page" id="notifications-bg">Notifications</a></li>
+                    <li><a href="#statistics-page" id="statistics-bg">Statistics</a></li>
+                </ul>
+            </footer>
+
+        </section><!-- checklist-page -->
+
+        <section id="budget-page">
+
+            <header>
+                <div class="container">
+                    <h1>Budget</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+            <div class="content">
+
+                    <div id="recap">
+                        <!-- <p id="budget">Your budget</p> -->
+                        <p>Budget : <span id="budgetLeft"></span><p>
+
+                        
+                        <p id="countdown">Countdown</br>
+                            <span id="countdownDaysLeft"></span> left
+                        <p>
+
+                        <p id="alldaysleft"><span id="daysLeft"></span> left</p>
+                        <p id="budgetPerday"></p>
+                    </div>
+
+                    <ul id="choice">
+                        <li><a href="#foodAnddrink-budget" class="top bottom">
+                            <figure>
+                                <img src="images/Food&Drink.png" alt="Food & Drink pictogram" width="60" height="60"/>
+                                <p>Food & Drink</p>
+                            </figure>
+                        </a></li>
+                        <li><a href="#travel-budget" class="top bottom left right">
+                            <figure>
+                                <img src="images/travel.png" alt="Travel pictogram" width="60" height="60"/>
+                                <p>Travel</p>
+                            </figure>
+                        </a></li>
+                        <li><a href="#accomodations-budget" class="top bottom">
+                            <figure>
+                                <img src="images/accomodations.png" alt="Accomodations pictogram" width="60" height="60"/>
+                                <p>Accomodations</p>
+                            </figure>
+                        </a></li>
+                        <li><a href="#activities-budget" class="bottom">
+                            <figure>
+                                <img src="images/activities.png" alt="Activities pictogram" width="60" height="60"/>
+                                <p>Activities</p>
+                            </figure>
+                        </a></li>
+                        <li><a href="#souvenirs-budget" class="bottom left right">
+                            <figure>
+                                <img src="images/souvenirs.png" alt="Souvenirs pictogram" width="60" height="60"/>
+                                <p>Souvenirs</p>
+                            </figure>
+                        </a></li>
+                        <li><a href="#others-budget" class="bottom">
+                            <figure>
+                                <img src="images/others.png" alt="Others pictogram" width="60" height="60"/>
+                                <p>Others</p>
+                            </figure>
+                        </a></li>
+                    </ul>
+
+            </div>
+
+            <footer>
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg" class="current">Budget</a></li>
+                    <li><a href="#statistics-page" id="notifications-bg">Notifications</a></li>
+                    <li><a href="#notifications-page" id="statistics-bg">Statistics</a></li>
+                </ul>
+            </footer>
+
+
+        </section><!-- budget-page -->
+
+        <section id="foodAnddrink-budget" class="under-cat">
+
+            <header>
+                <div class="container">
+                    <a href="#budget-page" class="back">Back</a>
+                    <h1>Food & Drink</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+
+                    <img src="images/foodBudget.png" alt="Hamburger" with="55" height="38" />
+
+                    <form action="#" method="post" onsubmit="add_food_and_drink(event);" class="overflow-hidden">
+                        <input type="text" name="foodAnddrink" id="foodAnddrink" placeholder="Enter your expenses">
+                        <input type="submit" name="" id="" value="payed">
+                    </form>
+
+                    <p id="errorFoofAndDrink" class="clear"></p>
+
+                    <table id="foodAndDrinkTable" class="clear">
+                    </table>
+                    
+                </div>
+            </div>
+
+            <footer>
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg" class="current">Budget</a></li>
+                    <li><a href="#statistics-page" id="notifications-bg">Notifications</a></li>
+                    <li><a href="#notifications-page" id="statistics-bg">Statistics</a></li>
+                </ul>
+            </footer>
+
+        </section><!-- foodAnddrink-budget -->
+
+        <section id="travel-budget" class="under-cat">
+
+            <header>
+                <div class="container">
+                    <a href="#budget-page" class="back">Back</a>
+                    <h1>Travel</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+
+                <img src="images/travelBudget.png" alt="Plane" with="50" height="45" />
+
+                <form action="#" method="post" onsubmit="add_travel_cost(event);" class="overflow-hidden">
+                    <input type="text" name="travel" id="travel" placeholder="Enter your expenses">
+                    <input type="submit" name="" id="" value="payed">
+                </form>
+
+                <p id="errorTravelCost" class="clear"></p>
+
+                <table id="travelTable" class="clear">
+                </table>
+                    
+                </div>
+            </div>
+
+            <footer>
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg" class="current">Budget</a></li>
+                    <li><a href="#statistics-page" id="notifications-bg">Notifications</a></li>
+                    <li><a href="#notifications-page" id="statistics-bg">Statistics</a></li>
+                </ul>
+            </footer>
+
+        </section><!-- travel-budget -->
+
+        <section id="accomodations-budget" class="under-cat">
+
+            <header>
+                <div class="container">
+                    <a href="#budget-page" class="back">Back</a>
+                    <h1>Accomodations</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+
+                <img src="images/accomodationBudget.png" alt="Room key" with="56" height="37" />
+
+                 <form action="#" method="post" onsubmit="add_accomodations_cost(event);" class="overflow-hidden">
+                    <input type="text" name="Accomodations" id="Accomodations" placeholder="Enter your expenses">
+                    <input type="submit" name="" id="" value="payed">
+                 </form>
+
+                <p id="errorAccomodationsCost" class="clear"></p>
+
+                <table id="accomodationstable" class="clear">
+                </table>
+                    
+                </div>
+            </div>
+
+            <footer>
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg" class="current">Budget</a></li>
+                    <li><a href="#statistics-page" id="notifications-bg">Notifications</a></li>
+                    <li><a href="#notifications-page" id="statistics-bg">Statistics</a></li>
+                </ul>
+            </footer>
+
+        </section><!-- accomodations-budget -->
+
+        <section id="activities-budget" class="under-cat">
+
+            <header>
+                <div class="container">
+                    <a href="#budget-page" class="back">Back</a>
+                    <h1>Activities</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+
+                    <img src="images/activitiesBudget.png" alt="Boat" with="41" height="45" />
+
+                    <form action="#" method="post" onsubmit="add_activities_cost(event);" class="overflow-hidden">
+                        <input type="text" name="activities" id="activities" placeholder="Enter your expenses">
+                        <input type="submit" name="" id="" value="payed">
+                    </form>
+
+                    <p id="errorActivitiesCost" class="clear"></p>
+
+                    <table id="activitiesTable" class="clear">
+                    </table>
+                    
+                </div>
+            </div>
+
+            <footer>
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg" class="current">Budget</a></li>
+                    <li><a href="#statistics-page" id="notifications-bg">Notifications</a></li>
+                    <li><a href="#notifications-page" id="statistics-bg">Statistics</a></li>
+                </ul>
+            </footer>
+
+        </section><!-- activities-budget -->
+
+        <section id="souvenirs-budget" class="under-cat">
+
+            <header>
+                <div class="container">
+                    <a href="#budget-page" class="back">Back</a>
+                    <h1>Souvenirs</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+
+                    <img src="images/souvenirsBudget.png" alt="Shell" with="46" height="39" />
+
+                    <form action="#" method="post" onsubmit="add_souvenirs_cost(event);" class="overflow-hidden">
+                        <input type="text" name="souvenirs" id="souvenirs" placeholder="Enter your expenses">
+                        <input type="submit" name="" id="" value="payed">
+                    </form>
+
+                    <p id="errorSouvenirsCost" class="clear"></p>
+
+                    <table id="SouvenirTable" class="clear">
+                    </table>
+                    
+                </div>
+            </div>
+
+            <footer>
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg" class="current">Budget</a></li>
+                    <li><a href="#statistics-page" id="notifications-bg">Notifications</a></li>
+                    <li><a href="#notifications-page" id="statistics-bg">Statistics</a></li>
+                </ul>
+            </footer>
+
+        </section><!-- souvenirs-budget -->
+
+        <section id="others-budget" class="under-cat">
+
+            <header>
+                <div class="container">
+                    <a href="#budget-page" class="back">Back</a>
+                    <h1>Others</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+
+                    <img src="images/otherBudget.png" alt="rubber ring" with="43" height="43" />
+
+                    <form action="#" method="post" onsubmit="add_others_cost(event);" class="overflow-hidden">
+                        <input type="text" name="others" id="others" placeholder="Enter your expenses">
+                        <input type="submit" name="" id="" value="payed">
+                    </form>
+
+                    <p id="errorOthersCost" class="clear"></p>
+
+                    <table id="othersTable" class="clear">
+                    </table>
+                    
+                </div>
+            </div>
+
+            <footer>
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg" class="current">Budget</a></li>
+                    <li><a href="#statistics-page" id="notifications-bg">Notifications</a></li>
+                    <li><a href="#notifications-page" id="statistics-bg">Statistics</a></li>
+                </ul>
+            </footer>
+
+        </section><!-- others-budget -->
+
+        <section id="notifications-page">
+
+            <header>
+                <div class="container">
+                    <h1>Notifications</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+                    <p>Sorry we are not finished yet</p>
+                </div>
+            </div>
+
+            <footer>
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg">Budget</a></li>
+                    <li><a href="#notifications-page" id="notifications-bg" class="current">Notifications</a></li>
+                    <li><a href="#statistics-page" id="statistics-bg">Statistics</a></li>
+                </ul>
+            </footer>
+
+        </section><!-- notifications-page -->
+
+        <section id="statistics-page">
+
+            <header>
+                <div class="container">
+                    <h1>Statistics</h1>
+                    <a href="" class="archiver" onClick="archiver();">Archived</a>
+                </div>
+            </header>
+
+            <div class="content">
+                <div class="container">
+                    <p>Sorry we are not finished yet</p>
+                </div>
+            </div>
+
+            <footer>
+                <ul id="menu">
+                    <li><a href="#checklist-page" id="checklist-bg">Checklist</a></li>
+                    <li><a href="#budget-page" id="budget-bg">Budget</a></li>
+                    <li><a href="#notifications-page" id="notifications-bg">Notifications</a></li>
+                    <li><a href="#statistics-page" id="statistics-bg" class="current">Statistics</a></li>
+                </ul>
+            </footer>
+
+        </section><!-- statistics-page -->
+
+        <section id="paysage">
+            <div class="content">
+                <div class="container">
+                    <p>Please stay in portrait</p>
+                </div>
+            </div>
+        </section><!-- paysage -->
+
+
+
+
+
+
+        <script src="js/script.js"></script>
+
+
+        <script type="text/javascript">
+
+
+
+        </script>
+
+
+
+    </body>
+</html>

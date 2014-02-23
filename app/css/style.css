@@ -1,0 +1,503 @@
+@import "reset.css";
+
+@font-face {
+    font-family: 'mission-script';
+    src: url('../fonts/mission-script-webfont.eot');
+    src: url('../fonts/mission-script-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/mission-script-webfont.woff') format('woff'),
+         url('../fonts/mission-script-webfont.ttf') format('truetype'),
+         url('../fonts/mission-script-webfont.svg#julius_sans_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'agency';
+    src: url('../fonts/agency_fb.eot');
+    src: url('../fonts/agency_fb.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/agency_fb.woff') format('woff'),
+         url('../fonts/agency_fb.ttf') format('truetype'),
+         url('../agency_fb.svg#julius_sans_oneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* ----- Communs ------ */
+
+body{
+
+    font-family: 'agency', sans-serif;
+    font-size: 16px;
+    line-height: 1.5em;
+    color: #9e9b9b;
+    
+    width: 5000px;
+    min-height: 100%;
+    /*overflow-x: hidden;*/
+    position: relative;
+}
+
+section{
+    float: left;
+    width: 320px;
+    height: 100vh;
+    position: relative;
+}
+
+header{
+    height: 34px;
+    background: #f65654;
+}
+
+header h1{
+    font-family: 'mission-script', cursive;
+    font-size: 24px;
+    line-height: 34px;
+    text-align: center;
+    color: #fff;
+}
+
+header a.archiver{
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    display: block;
+    width: 21px;
+    height: 20px;
+    text-indent: -9999px;
+    background: url(../images/archived.png)
+}
+
+h2{
+    font-family: 'mission-script', cursive;
+    font-size: 24px;
+    color: #f65654;
+    padding-bottom: 16px;
+}
+
+section .content {
+    height: 355px;
+    height: 80%;
+    /*overflow-y: scroll;*/
+}
+
+.container{
+    padding: 0 24px;
+}
+
+.overflow-hidden{
+    overflow: hidden;
+}
+
+.clear{
+    clear: both;
+}
+
+.hidden{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+a.button-create {
+    display: block;
+    width: 184px;
+    height: 30px;
+    margin: 0 auto;
+
+    font-size: 19px;
+    line-height: 27px;
+    text-align: center;
+    color: #fff;
+
+    background: #f65654 url(../images/button-bg.png) repeat-x;
+}
+
+input{
+    border: 1px solid #aeafaf;
+    margin: 7px 0;
+}
+
+section input[type="text"]{
+    display: block;
+    width: 232px;
+    height: 18px;
+    padding: 5px 5px;
+    padding-left: 33px;
+    line-height: 30px;
+    color: #f49898;
+}
+
+input[placeholder]{
+    font-family: 'agency', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+input[type="submit"]{
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    background: #f65654;
+}
+
+/*Suprime les fleches "+" et "-"*/
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type=date]:focus, textarea:focus, select:focus{
+    outline: none;
+}
+
+footer {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 45px;
+    width: 100%;
+    background: url(../images/footer-bg.png) repeat-x;
+    border-top: 1px solid #eeeced;
+}
+
+.posabsolute{
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+footer ul#menu{
+    overflow: hidden;
+}
+
+footer ul#menu li{
+    float: left;
+}
+
+footer ul#menu li a {
+    display: block;
+    width: 80px;
+    height: 45px;
+    /*text-indent: -9999px;*/
+    text-align: center;
+    line-height: 72px;
+    color: #838484;
+    background: url(../images/footer-sprite.png) 0 0;
+}
+
+footer ul#menu li a.current{
+    color: #f65654;
+    background: url(../images/footer-sprite.png) 0 -45px;
+}
+
+footer ul#menu li a#budget-bg{ background: url(../images/footer-sprite.png) -80px 0; }
+    footer ul#menu li a#budget-bg.current{ background: url(../images/footer-sprite.png) -80px -45px; }
+footer ul#menu li a#notifications-bg{ background: url(../images/footer-sprite.png) -160px 0; }
+    footer ul#menu li a#notifications-bg.current{ background: url(../images/footer-sprite.png) -160px -45px; }
+footer ul#menu li a#statistics-bg{ background: url(../images/footer-sprite.png) -240px 0; }
+    footer ul#menu li a#statistics-bg.current{ background: url(../images/footer-sprite.png) -240px -45px; }
+
+
+/* ----- Create-Trip ----- */
+section#create-trip img{
+    display: block;
+    margin: 85px auto 65px;
+}
+
+
+/* ----- create-your-travel ----- */
+section#create-your-travel{
+    /*padding-bottom: 300px;*/
+}
+
+section#create-your-travel .content{
+    background: blue;
+    background: url(../images/plane.png) no-repeat 140px 320px;
+}
+
+section#create-your-travel form{
+    margin-top: 34px;
+}
+
+section#create-your-travel form input[type="text"]{
+    display: block;
+    width: 237px;
+    height: 18px;
+    padding: 5px 0;
+    padding-left: 33px;
+    line-height: 30px;
+    color: #f49898;
+    background: url(../images/create-your-travel.png) no-repeat 2px 0;
+}
+
+section#create-your-travel form input[type="date"]{
+    width: 123px;
+    height: 28px;
+    float: left;
+    text-align: right;
+    padding-left: 5px;
+    color: #f49898;
+
+}
+
+section#create-your-travel form input[type="date"]#start{
+    margin-right: 11px;
+}
+
+
+section#create-your-travel form input#travelBudget{
+    background: url(../images/create-your-travel.png) no-repeat 2px -26px; 
+}
+
+section#create-your-travel form input[type="submit"]{
+    width: 272px;
+    height: 36px;
+    margin-top: 28px;
+
+    font-family: 'agency', sans-serif;
+    font-size: 20px;
+    text-align: center;
+
+    background: #f65654 url(../images/submit-bg.png) repeat-x;
+}
+
+section#create-your-travel .content img{
+    display: block;
+    position: relative;
+    left: 120px;
+    top: 40px;
+}
+
+
+/* ----- checklist-page ----- */
+section#checklist-page form{
+    margin-top: 34px;
+}
+
+section#checklist-page form input{
+    float: left;
+}
+
+section#checklist-page form input[type="text"]{
+    width: 180px;
+    padding-left: 5px;
+    margin-top: 0;
+}
+
+section#checklist-page form input[type="submit"]{
+    width: 40px;
+    height: 30px;
+    margin-left: 10px;
+    padding: 5px;
+    margin-top: 0;
+    text-indent: -9999px;
+
+    background: #f65654 url(../images/create-your-travel.png) center -56px;
+}
+
+section#checklist-page ul#checklist input[type=checkbox]{
+    float: right;
+
+    opacity: 0;
+    cursor: pointer;
+    
+    width: 19px;
+    height: 19px;
+
+    clear: both;
+}
+
+input[type='checkbox'] + label {
+    display: block;
+    height: 24px;
+    margin: 10px 0;
+    padding: 2px 0px;
+
+    color: #f65654;
+    cursor: pointer;
+    
+    background: url(../images/create-your-travel.png) 245px -86px no-repeat;
+}
+
+ input[type='checkbox']:checked + label {
+    background: url(../images/create-your-travel.png) 245px -115px no-repeat;
+    color: #d1d1d1;
+    text-decoration: line-through;
+
+}
+
+/* ----- budget-page ----- */
+section#budget-page #recap {
+    margin-top: 14px;
+}
+
+section#budget-page p{
+    font-size: 37px;
+    line-height: 1.2em;
+    text-align: center;
+    text-transform: uppercase;
+    color: #c1bfbf;
+}
+
+section#budget-page p#budgetPerday{
+    font-size: 28px;
+    text-transform: initial;
+}
+
+section#budget-page p span{
+    color: #f65654;
+}
+
+section#budget-page ul#choice {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+section#budget-page ul#choice li{
+    float: left;
+}
+
+section#budget-page ul#choice li a{
+    display: block;
+    width: 106px;
+    height: 130px;
+}
+
+section#budget-page ul#choice li a.top{ border-top: 1px solid #ddd; }
+section#budget-page ul#choice li a.bottom{ border-bottom: 1px solid #ddd; }
+section#budget-page ul#choice li a.left{ border-left: 1px solid #ddd; }
+section#budget-page ul#choice li a.right{ border-right: 1px solid #ddd; }
+
+section#budget-page ul#choice figure img{
+    display: block;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+section#budget-page ul#choice figure p{
+    font-size: 16px;
+    padding: 24px 0;
+    text-transform: initial;
+}
+
+/* ----- Sous categorie budget ----- */
+
+section.under-cat header a.back{
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    display: block;
+    width: 16px;
+    height: 20px;
+    text-indent: -9999px;
+    background: url(../images/back.png)
+}
+
+section.under-cat .content img{
+    display: block;
+    margin: 0 auto;
+    margin-top: 32px;
+}
+
+section.under-cat form{
+    width: 100%;
+    margin-top: 18px;
+}
+
+section.under-cat form input{
+    float: left;
+}
+
+section.under-cat input[type="text"]{
+    /*width: 180px;*/
+    width: 67%;
+    padding: 5px;
+    padding-right: 8%;
+    text-align: right;
+    background: url(../images/euro-bg.png) 190px 9px no-repeat;
+}
+
+
+section.under-cat form input[type="submit"]{
+    width: 15%;
+    height: 30px;
+    margin-left: 5%;
+    padding: 5px;
+    text-indent: -9999px;
+
+    background: #f65654 url(../images/create-your-travel.png) center -56px;
+}
+
+section.under-cat table{
+    width: 100%;
+    margin-top: 14px;
+
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+section.under-cat table th {
+    font-family: 'mission-script', cursive;
+    font-size: 20px;
+    width: 50%;
+    text-align: center;
+    color: #fff;
+    background: #f65654;
+    padding: 10px 0;
+
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+section.under-cat table td{
+    text-align: center; 
+    padding: 5px 0;
+
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+}
+
+section.under-cat table td span{
+    color: #f65654;
+}
+
+/* ----- notifications-page & statistics-page ----- */
+
+section#notifications-page p,
+section#statistics-page p{
+    font-size: 20px;
+    text-align: center;
+    margin-top: 50%;
+}
+
+/* ----- Mode paysage ----- */
+
+#paysage{
+    display: none;
+    font-size: 20px;
+    margin-top: 70px;
+    text-align: center;
+}
+
+/*bug avec les input*/
+/*@media (orientation: landscape) {
+
+    section{
+        display: none;
+    }
+
+    section#paysage{
+        display: block;
+        width: 320px;
+        width: 100vw;
+    }
+
+}
+*/
+
+
